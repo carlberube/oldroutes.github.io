@@ -1,5 +1,8 @@
 # Model
 
+* Table of contents
+{:toc}
+
 ## Blocking Validators 
 ***********************
 Those validators need to be fixed manually and the publish can't continue until they are fixed.
