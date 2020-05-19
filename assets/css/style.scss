@@ -5,12 +5,7 @@
 
 header {
   width:20px;
-}
-
-body {
-  background-color: black;
-  padding:50px;
-  font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color:#727272;
-  font-weight:400;
+  float:left;
+  position:fixed;
+  -webkit-font-smoothing:subpixel-antialiased;
 }
