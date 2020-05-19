@@ -29,7 +29,7 @@ Those validators need to be fixed manually, but they won't block the publish.
 * validation_is_mandatory: False
 * description : Make sure the basic groups exist : 'All_Grp', 'Render_Grp', 'TexturesShading_Grp', 'RiggingSimulation_Grp', 'Blendshapes_Grp', 'TRASH'
 
-##### ValidateReferenceNamespaceContentValidator
+##### Reference Namespace Content
 * severity if test fail: <span style="color:orange">warning</span>
 * validation_is_mandatory: False
 * description : Test if any namespace comming from a reference contain a node that doesn't belong to a reference
