@@ -2,6 +2,7 @@
 
 Here's a list of Steps which are validated at the moment :
 
-* [Surface](./surface.md)
+* [Dressing](./dressing.md)
 * [Model](./model.md)
+* [Surface](./surface.md)
 
