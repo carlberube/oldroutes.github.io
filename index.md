@@ -1,37 +1,125 @@
-## Welcome to GitHub Pages
+# Surface
 
-You can use the [editor on GitHub](https://github.com/oldroutes/validators/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+* Table of contents
+{:toc}
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Blocking Validators 
+***********************
+Those validators need to be fixed manually and the publish can't continue until they are fixed.
 
-### Markdown
+##### Each Mesh Has Valid Shaders
+* <span style="color:red">CAN BLOCK PUBLISH</span>
+* severity if test fail: <span style="color:red">error</span>
+* validation_is_mandatory: True
+* description : Check whether or not the meshes have a shader assigned, a shader that's not referenced and a shader of those types : 'RedshiftMaterial', 'RedshiftMaterialBlender', 'surfaceShader' and 'RedshiftCarPaint'
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+##### Each Shape Is Referenced
+* <span style="color:red">CAN BLOCK PUBLISH</span>
+* severity if test fail: <span style="color:red">error</span>
+* validation_is_mandatory: True
+* description : Check whether or not all the shapes are referenced (e.g. : they come from a Reference.)
 
-```markdown
-Syntax highlighted code block
+##### Each Shape Has No Local History
+* <span style="color:red">CAN BLOCK PUBLISH</span>
+* severity if test fail: <span style="color:red">error</span>
+* validation_is_mandatory: True
+* description : Check whether or not the shapes have Local History. 
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
+## Auto Fixable Validators
+***********************
+Those validators won't block the publish, and issues will be fixed on the Farm. It is preferrable to prevent those before the publish. 
 
-1. Numbered
-2. List
+##### Rstexbin Check
+* severity if test fail: <span style="color:orange">warning</span>
+* validation_is_mandatory: True
+* description : Check whether or not the RSTexBin file is valid.
+* Auto Fix On Publish
 
-**Bold** and _Italic_ and `Code` text
+##### Variant Sets Are Unchanged
+* severity if test fail: <span style="color:orange">warning</span>
+* validation_is_mandatory: True
+* description : Make sure the Variant Sets has not been modified. 
+* Auto Fix On Publish
 
-[Link](url) and ![Image](src)
-```
+##### Shape Has No Reference History
+* severity if test fail: <span style="color:orange">warning</span>
+* validation_is_mandatory: False
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+##### Variant Root Is Child Of World
+* severity if test fail: <span style="color:orange">warning</span>
+* validation_is_mandatory: True
+* Auto Fix On Publish
 
-### Jekyll Themes
+##### Mesh Has Valid Shaders Assignation
+* severity if test fail: <span style="color:orange">warning</span>
+* validation_is_mandatory: True
+* Auto Fix On Publish
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/oldroutes/validators/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+##### Mesh Has Valid Shader Name
+* severity if test fail: <span style="color:orange">warning</span>
+* validation_is_mandatory: True
+* Auto Fix On Publish
 
-### Support or Contact
+##### Tessellation Validator
+* severity if test fail: <span style="color:orange">warning</span>
+* validation_is_mandatory: True
+* description : Make sure the 'rsEnableSubdivision' attribute is enabled. 
+* Auto Fix On Publish
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+
+## Cleanup procedures
+**********************
+Those steps are really about cleaning up the scene, before we save it as an 'mayaBinary' file under the '/data' folder.
+
+##### Root Has Zero Transform
+* severity if test fail: <span style="color:blue">info</span>
+* validation_is_mandatory: False
+* Auto Fix On Publish
+
+##### Reference Is Not Moved
+* severity if test fail: <span style="color:blue">info</span>
+* validation_is_mandatory: False
+* description : Check whether or not the Reference is moved. For the 'Surface' step, the transforms will be removed. For the 'TurnTable' step, the transforms will be maintained.
+* Auto Fix On Publish
+
+##### ValidateCleanExportVariations
+* severity if test fail: <span style="color:orange">warning</span>
+* validation_is_mandatory: True
+* Auto Fix On Publish
+
+##### ValidateLightRigReference
+* severity if test fail: <span style="color:blue">info</span>
+* validation_is_mandatory: False
+* Auto Fix On Publish
+
+##### ValidateImportAllReferences
+* severity if test fail: <span style="color:blue">info</span>
+* validation_is_mandatory: False
+* Auto Fix On Publish
+
+##### ValidateGroomingRedshiftProxy
+* severity if test fail: <span style="color:blue">info</span>
+* validation_is_mandatory: False
+* Auto Fix On Publish
+
+##### ValidateTrashGroup
+* severity if test fail: <span style="color:blue">info</span>
+* validation_is_mandatory: False
+* Auto Fix On Publish
+
+##### ValidateUnwantedNodes
+* severity if test fail: <span style="color:blue">info</span>
+* validation_is_mandatory: False
+* Auto Fix On Publish
+
+##### ValidateUnwantedAlembicNodes
+* severity if test fail: <span style="color:blue">info</span>
+* validation_is_mandatory: False
+* Auto Fix On Publish
+
+##### ValidateUnknownPlugins
+* severity if test fail: <span style="color:blue">info</span>
+* validation_is_mandatory: False
+* Auto Fix On Publish
+
